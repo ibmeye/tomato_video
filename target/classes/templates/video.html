@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>视频记录</title>
+        <meta charset="UTF-8"></meta>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+		<meta name="author" content="ibmeye"></meta>
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+		<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"></link>
+		<link th:href="@{/css/animate.min.css}" rel="stylesheet"></link> 
+		<link th:href="@{/css/lightbox.css}" rel="stylesheet"></link> 
+		<link th:href="@{/css/main.css}" rel="stylesheet"></link>
+		<link th:href="@{/css/responsive.css}" rel="stylesheet"></link>
+		<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet"></link> 
+		
+		<!--[if lt IE 9]>
+			<script th:src="@{/js/html5shiv.js}"></script>
+			<script th:src="@{/js/respond.min.js}"></script>
+		<![endif]-->
+		<link rel="shortcut icon" th:href="@{/images/ico/favicon.ico}"></link>
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" th:href="@{/images/ico/apple-touch-icon-144-precomposed.png}"></link>
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" th:href="@{/images/ico/apple-touch-icon-114-precomposed.png}"></link>
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" th:href="@{/images/ico/apple-touch-icon-72-precomposed.png}"></link>
+		<link rel="apple-touch-icon-precomposed" th:href="@{/images/ico/apple-touch-icon-57-precomposed.png}"></link>
+    </head>
+<body>
+	<header id="header">
+    <div class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                	<span class="sr-only">导航栏</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<h1><a class="navbar-brand" th:href="@{/}">
+                  		<img th:src="@{/images/logo.png}" alt="logo"></img>
+                  	</a></h1>
+			</div>
+         </div>
+     </div>
+     </header>
+
+	<section id="page-breadcrumb">
+     <div class="vertical-center sun">
+          <div class="container">
+             <div class="row">
+                 <div class="action">
+                     <div class="col-sm-12">
+                         <h1 class="title">视频回放</h1>
+                         <p>回放逝去的青春!</p>
+                     </div>                        
+                 </div>
+             </div>
+         </div>
+     </div>
+	</section>
+ <!--/#action-->
+
+	
+	<section class="container">
+ 		<div class="center-block" style="width:800px;">
+		<video id="my_video_1" class="video-js vjs-default-skin" controls = "controls" preload="auto" width="800" height="600" data-setup='{}'>
+			<source th:src="${video_url}" type="application/x-mpegURL"></source>
+	  	</video>
+	  	</div>
+
+	</section>
+	
+	<footer id="footer">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-sm-12">
+	                <div class="copyright-text text-center">
+	                    <p>&copy; LuBiao 2017. All Rights Reserved.</p>
+	                    <p>Designed by <a target="_blank" th:href="@{#}">ibmeye</a></p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</footer>
+	<!--/#footer-->
+	<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/lightbox.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/main.js}"></script>   
+
+	
+	<script src="https://unpkg.com/video.js/dist/video.js"></script>
+	<script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+	
+</body>
+</html>

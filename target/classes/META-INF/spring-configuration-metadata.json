@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.duapp.ibmeye.video.VideoConfig",
+      "name": "video",
+      "type": "com.duapp.ibmeye.video.VideoConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.duapp.ibmeye.video.VideoConfig",
+      "name": "video.dir-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.video.VideoConfig",
+      "name": "video.host",
+      "type": "java.lang.String"
+    }
+  ]
+}
