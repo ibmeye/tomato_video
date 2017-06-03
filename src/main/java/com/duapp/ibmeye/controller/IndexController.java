@@ -34,8 +34,8 @@ public class IndexController {
 		
 		Video video = videoRespository.findOne(Long.parseLong(videoId));
 	
-
-		model.addAttribute( "video_url", videoConfig.getHttpUrl() + "/" + video.getFileName() );
+        model.addAttribute("video_url", "http://127.0.0.1/video.m3u8");
+		//model.addAttribute( "video_url", videoConfig.getHttpUrl() + "/" + video.getFileName() );
 		System.out.println(videoConfig.getHttpUrl() + "/" + video.getFileName());
 		return "video";
 		
