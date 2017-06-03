@@ -33,7 +33,7 @@ public class VideoTimer {
     @Scheduled(fixedRate = 3000)
     public void timerRate() {
     	
-    	String[] commands = {"notepad"};
+    	String[] commands = {"echo 'ok' > log.txt"};
     	try {
     		
 			if( curProcess != null ) {
