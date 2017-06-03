@@ -45,7 +45,7 @@ public class VideoTimer {
 				// 12:58:54
 				curVideo.setFinishDate( toSec.format(finishDate) );	
 				
-				videoRespository.update( curVideo );
+				videoRespository.save( curVideo );
 			}
 			
 			startDate = new Date();
