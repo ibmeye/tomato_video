@@ -22,7 +22,8 @@ public class VideoTimer {
 	@Autowired
 	private VideoRespository videoRespository;
 	
-	private Process process;
+	private Process curProcess;
+	private Video curVideo;
 	
 	private SimpleDateFormat toDay = new SimpleDateFormat("yyyy-MM-dd");
 	private SimpleDateFormat toSec = new SimpleDateFormat("HH:mm:ss");
@@ -35,32 +36,32 @@ public class VideoTimer {
     	String[] commands = {"notepad"};
     	try {
     		
-			if( process != null ) {
-				process.destroy();
+			if( curProcess != null ) {
+			    
+				curProcess.destroy();
 				
 				Date finishDate = new Date();
 				
-				Video video = new Video();
-				// 2015-11-28 
-				video.setName( toDay.format(startDate) + " " +  toSec.format(startDate) + "-" + toSec.format(finishDate) );
-				System.out.println(video.getName());
-				// 12:28:24
-				video.setStartDate(  toSec.format(startDate) );
-				System.out.println(video.getStartDate());
 				// 12:58:54
-				video.setFinishDate( toSec.format(finishDate) );
-				System.out.println(video.getFinishDate());
-				// 2017-6-3 12:28:24.m3u8
-				video.setFileName( toDay.format(startDate) + " " + video.getStartDate() + ".m3u8" );
-				System.out.println(video.getFileName());
-				videoRespository.save(video);
+				curVideo.setFinishDate( toSec.format(finishDate) );	
+				
+				videoRespository.update( curVideo );
 			}
 			
 			startDate = new Date();
 			// 2017-6-3 12:28:24.m3u8
-			process = Runtime.getRuntime().exec(commands);
+			curProcess = Runtime.getRuntime().exec(commands);
 			
-//			System.out.println( videoConfig.getHttpUrl());
+			curVideo = new Video();
+			
+			// 2015-11-28 12:38:24
+			curVideo.setName( toDay.format(startDate) + " " +  toSec.format(startDate) );
+			// 12:28:24
+			curVideo.setStartDate( toSec.format(startDate) );
+			// 2017-6-3 12:28:24.m3u8
+		    curVideo.setFileName( curVideo.getName() + ".m3u8" );
+		    // save
+		    videoRespository.save(video);
 		} 
     	catch (Exception e) {
 		}
