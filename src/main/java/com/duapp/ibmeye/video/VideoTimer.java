@@ -33,7 +33,7 @@ public class VideoTimer {
     @Scheduled(fixedRate = 3000)
     public void timerRate() {
     	
-    	String[] commands = {"sleep","300000"};
+    	
     	try {
     		
 			if( curProcess != null ) {
@@ -49,8 +49,6 @@ public class VideoTimer {
 			}
 			
 			startDate = new Date();
-			// 2017-6-3 12:28:24.m3u8
-			curProcess = Runtime.getRuntime().exec(commands);
 			
 			curVideo = new Video();
 			
@@ -60,6 +58,9 @@ public class VideoTimer {
 			curVideo.setStartDate( toSec.format(startDate) );
 			// 2017-6-3 12:28:24.m3u8
 		    curVideo.setFileName( curVideo.getName() + ".m3u8" );
+		    String[] commands = {"sudo ffmpeg -re -i video.mp4 -codec:v libx264 -codec:a aac -map 0 -f hls  -hls_list_size 6 -hls_wrap 10 -hls_time 10 ", "/var/www/html/" + curVideo.getName() };
+			curProcess = Runtime.getRuntime().exec(commands);
+		    
 		    // save
 		    videoRespository.save(curVideo);
 		} 
