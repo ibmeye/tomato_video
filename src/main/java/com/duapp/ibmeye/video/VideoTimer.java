@@ -61,7 +61,7 @@ public class VideoTimer {
 			// 2017-6-3 12:28:24.m3u8
 		    curVideo.setFileName( curVideo.getName() + ".m3u8" );
 		    // save
-		    videoRespository.save(video);
+		    videoRespository.save(curVideo);
 		} 
     	catch (Exception e) {
 		}
