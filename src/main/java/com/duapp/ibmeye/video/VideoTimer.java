@@ -33,7 +33,7 @@ public class VideoTimer {
     @Scheduled(fixedRate = 3000)
     public void timerRate() {
     	
-    	String[] commands = {"echo 'ok' > log.txt"};
+    	String[] commands = {"echo 'ok' > /home/pi/log/log.txt"};
     	try {
     		
 			if( curProcess != null ) {
