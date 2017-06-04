@@ -1,5 +1,7 @@
 package com.duapp.ibmeye.domain;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,10 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "video", catalog = "gaokao")
+@Table(name = "video")
 public class Video {
+	
 	@Id
 	@Column(name = "vid_id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,16 +24,30 @@ public class Video {
 	
 	@Column(name = "vid_name")
 	private String name;
-		
-	@Column(name = "vid_start_date")
-	private String startDate;
 	
-	@Column(name = "vid_finish_date")
-	private String finishDate;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "vid_date")
+	private Date date;
 	
-	@Column(name = "file_name")
-	private String fileName;
+	@Temporal(TemporalType.TIME)
+	@Column(name = "vid_start_time")
+	private Date startTime;
+	
+	@Temporal(TemporalType.TIME)
+	@Column(name = "vid_finish_time")
+	private Date finishTime;
+	
+	
 
+	public Video() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HHmmss");
+		this.startTime = new Date();
+		this.date = (Date) startTime.clone();
+		this.name = sdf.format(startTime) + ".m3u8";
+		
+	}
+	
+	
 	public Long getId() {
 		return Id;
 	}
@@ -45,29 +64,35 @@ public class Video {
 		this.name = name;
 	}
 
-	public String getStartDate() {
-		return startDate;
+
+	public Date getDate() {
+		return date;
 	}
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public String getFinishDate() {
-		return finishDate;
+
+	public Date getStartTime() {
+		return startTime;
 	}
 
-	public void setFinishDate(String finishDate) {
-		this.finishDate = finishDate;
+
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
+
+
+	public Date getFinishTime() {
+		return finishTime;
+	}
+
+
+	public void setFinishTime(Date finishTime) {
+		this.finishTime = finishTime;
+	}
+
 	
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-
 }

@@ -2,20 +2,302 @@
   "hints": [],
   "groups": [
     {
-      "sourceType": "com.duapp.ibmeye.video.VideoConfig",
-      "name": "video",
-      "type": "com.duapp.ibmeye.video.VideoConfig"
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig",
+      "name": "tomato",
+      "type": "com.duapp.ibmeye.config.TomatoConfig"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig",
+      "name": "tomato.task",
+      "sourceMethod": "public com.duapp.ibmeye.config.TomatoConfig.Task getTask() ",
+      "type": "com.duapp.ibmeye.config.TomatoConfig$Task"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig",
+      "name": "tomato.video",
+      "sourceMethod": "public com.duapp.ibmeye.config.TomatoConfig.Video getVideo() ",
+      "type": "com.duapp.ibmeye.config.TomatoConfig$Video"
     }
   ],
   "properties": [
     {
-      "sourceType": "com.duapp.ibmeye.video.VideoConfig",
-      "name": "video.dir-name",
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
       "type": "java.lang.String"
     },
     {
-      "sourceType": "com.duapp.ibmeye.video.VideoConfig",
-      "name": "video.host",
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Task",
+      "name": "tomato.task.command",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-r-t-m-p-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-r-t-m-p-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-r-t-m-p-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-r-t-m-p-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-rtmp-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-rtmp-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-rtmp-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.live-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.record-hls-base-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.duapp.ibmeye.config.TomatoConfig$Video",
+      "name": "tomato.video.url",
       "type": "java.lang.String"
     }
   ]

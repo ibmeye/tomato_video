@@ -8,9 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.duapp.ibmeye.config.TomatoConfig;
 import com.duapp.ibmeye.domain.Video;
 import com.duapp.ibmeye.repository.VideoRespository;
-import com.duapp.ibmeye.video.VideoConfig;
 
 
 @Controller
@@ -20,12 +20,13 @@ public class IndexController {
 	VideoRespository videoRespository ;
 	
 	@Autowired
-	VideoConfig videoConfig;
+	TomatoConfig tomatoConfig;
 	
 	@RequestMapping("/")
 	public String index( Model model ) {		
 		ArrayList<Video> videos = (ArrayList<Video>)videoRespository.findAll();
 		model.addAttribute("videos", videos);
+		
 		return "index";
 	}
 	
@@ -34,10 +35,16 @@ public class IndexController {
 		
 		Video video = videoRespository.findOne(Long.parseLong(videoId));
 	
-        model.addAttribute("video_url", "http://127.0.0.1/video.m3u8");
-		//model.addAttribute( "video_url", videoConfig.getHttpUrl() + "/" + video.getFileName() );
-		System.out.println(videoConfig.getHttpUrl() + "/" + video.getFileName());
+        model.addAttribute("video_url", tomatoConfig.getVideo().getRecordHlsBaseUrl() + video.getName() );
 		return "video";
+		
+	}
+	
+	
+	@RequestMapping("/live")
+	public String video(Model model) {
+		model.addAttribute("video_url", tomatoConfig.getVideo().getLiveRtmpUrl() );
+		return "live";
 		
 	}
 }
