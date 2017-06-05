@@ -27,24 +27,26 @@ public class TaskTimer {
 		
 		if( task1.getState() == true ) {
 			task1.addDuration(1000L);
-			if( task1.getDuration() >= 10000L ) {
+			if( task1.getDuration() >= 1800000L ) {
 				task1.destory();
+				System.out.println("task1 ended");
 			}
 		}
 		
 		if( task2.getState() == true ) {
 			task2.addDuration(1000L);
-			if( task2.getDuration() >= 10000L ) {
+			if( task2.getDuration() >= 1800000L ) {
 				task2.destory();
+				System.out.println("task2 ended");
 			}
 		}
     }
     
     
-    @Scheduled( fixedRate = 9000 )
+    @Scheduled( fixedRate = 1700000 )
     public void startRate() {
     	if( task1.getState() == false ) {
-    		System.out.println("task1");
+    		System.out.println("task1 started");
     		task1.exec();
     	}
     	else if( task2.getState() == false ) {

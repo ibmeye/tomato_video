@@ -35,7 +35,7 @@ public class IndexController {
 		
 		Video video = videoRespository.findOne(Long.parseLong(videoId));
 	
-        model.addAttribute("video_url", tomatoConfig.getVideo().getRecordHlsBaseUrl() + video.getName() );
+                model.addAttribute("video_url", tomatoConfig.getVideo().getRecordHlsBaseUrl() + video.getName() );
 		return "video";
 		
 	}

@@ -31,27 +31,27 @@ public class Task {
 		this.process = null;
 		this.video = null;
 		this.duration = 0L;
-		this.state = false;
-		
-		
+		this.state = false;		
 	}
 	
 	public void exec() {
+		System.out.println( "started state0:" + this.process + " " + this.state );
 		this.video = new Video();
-		this.command = tomatoConfig.getTask().getCommand();
-//		command = String.format(command, this.video.getName());
+		this.command = tomatoConfig.getTask().getCommand() + this.video.getName();
+		System.out.println( "read command:" + this.command );
 		try {
-//			this.process = Runtime.getRuntime().exec(command);
-			System.out.println(command);
+			this.process = Runtime.getRuntime().exec(command);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		this.duration = 0L;
 		this.state = true;
+		System.out.println( "started state1" + this.process + " " + this.state);
 	}
 	
 	public void destory() {
+                System.out.println( "ended state0:" + this.process + " " + this.state );
 //		this.process.destroy();
 		System.out.println("process  destory" + " " + this.video.getName() + " " + this.duration );
 		this.process = null;
@@ -62,8 +62,7 @@ public class Task {
 		this.video = null;
 		this.duration = 0L;
 		this.state = false;
-		
-
+		System.out.println( "ended state1:" + this.process + " " + this.state );
 	}
 
 	public Boolean getState() {

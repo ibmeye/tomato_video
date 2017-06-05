@@ -57,7 +57,7 @@ public class TomatoConfig {
 		}
 
 		public void setRecordHlsBaseUrl(String recordHlsBaseUrl) {
-			this.recordHlsBaseUrl = recordHlsBaseUrl;
+			this.recordHlsBaseUrl = recordHlsBaseUrl.trim();
 		}
 
 		public String getLiveRtmpUrl() {
@@ -65,7 +65,7 @@ public class TomatoConfig {
 		}
 
 		public void setLiveRtmpUrl(String liveRtmpUrl) {
-			this.liveRtmpUrl = liveRtmpUrl;
+			this.liveRtmpUrl = liveRtmpUrl.trim();
 		}
 	}
 }
