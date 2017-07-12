@@ -27,7 +27,7 @@ public class TaskTimer {
 		
 		if( task1.getState() == true ) {
 			task1.addDuration(1000L);
-			if( task1.getDuration() >= 1800000L ) {
+			if( task1.getDuration() >= 90000L ) {
 				task1.destory();
 				System.out.println("task1 ended");
 			}
@@ -35,7 +35,7 @@ public class TaskTimer {
 		
 		if( task2.getState() == true ) {
 			task2.addDuration(1000L);
-			if( task2.getDuration() >= 1800000L ) {
+			if( task2.getDuration() >= 90000L ) {
 				task2.destory();
 				System.out.println("task2 ended");
 			}
@@ -43,7 +43,7 @@ public class TaskTimer {
     }
     
     
-    @Scheduled( fixedRate = 1700000 )
+    @Scheduled( fixedRate = 60000 )
     public void startRate() {
     	if( task1.getState() == false ) {
     		System.out.println("task1 started");
