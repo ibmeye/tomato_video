@@ -1,9 +1,10 @@
 package com.duapp.ibmeye.video;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.duapp.ibmeye.config.TomatoConfig;
@@ -11,7 +12,6 @@ import com.duapp.ibmeye.domain.Video;
 import com.duapp.ibmeye.repository.VideoRespository;
 
 @Component
-@Scope("prototype")
 public class Task {
 	
 	@Autowired
@@ -19,71 +19,66 @@ public class Task {
 	
 	@Autowired
 	private VideoRespository videoRespository;
-
-	private String command;
-	private Process process;
-	private Video video;
-	private Long duration;
-	private Boolean state;
 	
+	private String command;
+	private Long duration;
 	
 	public Task() {
-		this.process = null;
-		this.video = null;
-		this.duration = 0L;
-		this.state = false;		
+		this.command = tomatoConfig.getTask().getCommand();
+		this.duration = tomatoConfig.getTask().getDuration();
 	}
-	
-	public void exec() {
-		System.out.println( "started state0:" + this.process + " " + this.state );
-		this.video = new Video();
-		this.command = tomatoConfig.getTask().getCommand() + this.video.getName();
-		System.out.println( "read command:" + this.command );
-		try {
-			this.process = Runtime.getRuntime().exec(command);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void run() {
+		new Thread() {
+			public void run() {
+				Video video = new Video();
+				
+				initCommand(video);
+				runCommand();
+				
+				video.setFinishTime(new Date());
+				
+				videoRespository.save(video);
+
+			}
+
+			private void initCommand( Video video ) {
+				command = command + video.getName();
+				
+			}
+			private void runCommand() {
+				try {
+					final Process process = Runtime.getRuntime().exec(command);
+					new Thread() {
+						public void run() {
+							InputStream is = process.getInputStream();
+							byte[] bits = new byte[1024]; 
+							try {
+								while(is.read(bits) != -1) {}
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+					}.start();
+					new Thread() {
+						public void run() {
+							InputStream es = process.getErrorStream();
+							byte[] bits = new byte[1024];
+							try {
+								
+								while(es.read(bits) != -1 ) {}
+							}
+							catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					}.start();
+					Thread.sleep(duration);
+					process.destroy();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}.start();
 		
-		this.duration = 0L;
-		this.state = true;
-		System.out.println( "started state1" + this.process + " " + this.state);
-	}
-	
-	public void destory() {
-                System.out.println( "ended state0:" + this.process + " " + this.state );
-//		this.process.destroy();
-		System.out.println("process  destory" + " " + this.video.getName() + " " + this.duration );
-		this.process = null;
-		
-		this.video.setFinishTime(new Date());
-		videoRespository.save(this.video);
-		
-		this.video = null;
-		this.duration = 0L;
-		this.state = false;
-		System.out.println( "ended state1:" + this.process + " " + this.state );
-	}
-
-	public Boolean getState() {
-		return state;
-	}
-	
-	public void addDuration( Long add ) {
-		this.duration += add;
-	}
-	
-	public Long getDuration() {
-		return duration;
-	}
-
-	public void setDuration(Long duration) {
-		this.duration = duration;
-	}
-
-	
-
-	public void setState(Boolean state) {
-		this.state = state;
 	}
 }

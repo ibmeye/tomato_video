@@ -17,43 +17,11 @@ import com.duapp.ibmeye.repository.VideoRespository;
 public class TaskTimer {
 	
 	@Autowired
-	private Task task1;
-	
-	@Autowired
-	private Task task2;
-	
-	@Scheduled( initialDelay = 1000, fixedRate = 1000 )
-	public void finishRate() {
-		
-		if( task1.getState() == true ) {
-			task1.addDuration(1000L);
-			if( task1.getDuration() >= 90000L ) {
-				task1.destory();
-				System.out.println("task1 ended");
-			}
-		}
-		
-		if( task2.getState() == true ) {
-			task2.addDuration(1000L);
-			if( task2.getDuration() >= 90000L ) {
-				task2.destory();
-				System.out.println("task2 ended");
-			}
-		}
-    }
-    
-    
+	private Task task;
+
     @Scheduled( fixedRate = 60000 )
     public void startRate() {
-    	if( task1.getState() == false ) {
-    		System.out.println("task1 started");
-    		task1.exec();
-    	}
-    	else if( task2.getState() == false ) {
-    		System.out.println("task2");
-    		task2.exec();
-    	}
-    	
+    	task.run();
     }
 }
 

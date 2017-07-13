@@ -35,6 +35,9 @@ public class TomatoConfig {
 	public static class Task {
 		@NotEmpty
 		private String command;
+		
+		@NotEmpty
+		private Long duration;
 
 		public String getCommand() {
 			return command;
@@ -42,6 +45,14 @@ public class TomatoConfig {
 
 		public void setCommand(String command) {
 			this.command = command;
+		}
+
+		public Long getDuration() {
+			return duration;
+		}
+
+		public void setDuration(Long duration) {
+			this.duration = duration;
 		}
 	}
 	

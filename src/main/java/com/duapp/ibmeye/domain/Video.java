@@ -18,23 +18,20 @@ import javax.persistence.TemporalType;
 public class Video {
 	
 	@Id
-	@Column(name = "vid_id", unique = true, nullable = false)
+	@Column(name = "v_id", unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	
-	@Column(name = "vid_name")
+	@Column(name = "v_name")
 	private String name;
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "vid_date")
-	private Date date;
 	
 	@Temporal(TemporalType.TIME)
-	@Column(name = "vid_start_time")
+	@Column(name = "v_start_time")
 	private Date startTime;
 	
 	@Temporal(TemporalType.TIME)
-	@Column(name = "vid_finish_time")
+	@Column(name = "v_finish_time")
 	private Date finishTime;
 	
 	
@@ -42,9 +39,7 @@ public class Video {
 	public Video() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HHmmss");
 		this.startTime = new Date();
-		this.date = (Date) startTime.clone();
 		this.name = sdf.format(startTime) + ".m3u8";
-		
 	}
 	
 	
@@ -62,16 +57,6 @@ public class Video {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-
-	public Date getDate() {
-		return date;
-	}
-
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 
